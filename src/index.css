@@ -1,68 +1,317 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@theme {
+  --color-smoky-black-100: #070501;
+  --color-smoky-black-200: #0e0b03;
+  --color-smoky-black-300: #141004;
+  --color-smoky-black-400: #1b1605;
+  --color-smoky-black-500: #231c07;
+  --color-smoky-black-600: #705a16;
+  --color-smoky-black-700: #bf9926;
+  --color-smoky-black-800: #e0c162;
+  --color-smoky-black-900: #f0e0b1;
+  
+  --color-bistre-100: #0b0804;
+  --color-bistre-200: #161009;
+  --color-bistre-300: #21180d;
+  --color-bistre-400: #2c2011;
+  --color-bistre-500: #392a16;
+  --color-bistre-600: #76562e;
+  --color-bistre-700: #b48446;
+  --color-bistre-800: #cead82;
+  --color-bistre-900: #e7d6c1;
+  
+  --color-liver-100: #140d0a;
+  --color-liver-200: #271914;
+  --color-liver-300: #3b261e;
+  --color-liver-400: #4e3328;
+  --color-liver-500: #634133;
+  --color-liver-600: #915f4b;
+  --color-liver-700: #b58370;
+  --color-liver-800: #cead9f;
+  --color-liver-900: #e6d6cf;
+  
+  --color-brown-sugar-100: #26160f;
+  --color-brown-sugar-200: #4b2b1f;
+  --color-brown-sugar-300: #71412e;
+  --color-brown-sugar-400: #97573e;
+  --color-brown-sugar-500: #b86f52;
+  --color-brown-sugar-600: #c68b74;
+  --color-brown-sugar-700: #d4a897;
+  --color-brown-sugar-800: #e3c5b9;
+  --color-brown-sugar-900: #f1e2dc;
+  
+  --color-coral-100: #421203;
+  --color-coral-200: #842407;
+  --color-coral-300: #c6360a;
+  --color-coral-400: #f35322;
+  --color-coral-500: #f78764;
+  --color-coral-600: #f89e83;
+  --color-coral-700: #fab7a2;
+  --color-coral-800: #fccfc1;
+  --color-coral-900: #fde7e0;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: 'Poppins', sans-serif;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  min-height: 100vh;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Background Animation */
+.animate-bg-gradient {
+  background: radial-gradient(ellipse at center, #140d0a 0%, #0b0804 20%, #070501 40%, #070501 100%);
+  background-size: 400% 400%;
+  animation: bg-gradient 15s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Border Animation */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(270deg, #f78764, #b86f52, #634133, #f35322);
+  background-size: 400% 400%;
+  animation: gradient 8s linear infinite;
+  padding: 2px;
+  border-radius: 0.75rem;
+}
+
+.gradient-border-inner {
+  background: #070501;
+  border-radius: 0.625rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Entrance Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  a:hover {
-    color: #747bff;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes expandToChat {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2) rotate(3deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(4) rotate(6deg);
+    opacity: 0;
+  }
+}
+
+@keyframes expandToFullscreen {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(8);
+    opacity: 0.1;
+  }
+}
+
+@keyframes textToChat {
+  0% {
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+  }
+  100% {
+    top: 140px;
+    right: 80px;
+    left: auto;
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(247, 135, 100, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(247, 135, 100, 0.6);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bg-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-expand-to-chat {
+  animation: expandToChat 1.5s ease-out forwards;
+}
+
+.animate-expand-to-fullscreen {
+  animation: expandToFullscreen 1.5s ease-out forwards;
+}
+
+.animate-text-to-chat {
+  animation: textToChat 1.5s ease-out forwards;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Staggered Delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Initial Hidden State */
+.initial-hidden {
+  opacity: 0;
+}
+
+/* Custom Placeholder */
+.custom-placeholder::placeholder {
+  color: #b86f52;
+  transition: color 0.3s ease;
+}
+
+.custom-placeholder:focus::placeholder {
+  color: #d4a897;
+}
+
+/* Button Hover Effects */
+.button-hover-glow:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(247, 135, 100, 0.4);
+}
+
+/* Text Glow Effect */
+.text-glow {
+  text-shadow: 0 0 10px rgba(247, 135, 100, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.text-glow:hover {
+  text-shadow: 0 0 20px rgba(247, 135, 100, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin,
+  .gradient-border,
+  .animate-bg-gradient,
+  .animate-fade-in-up,
+  .animate-fade-in-left,
+  .animate-fade-in-scale,
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-expand-to-chat {
+    animation: none;
+  }
+  *, *:before, *:after {
+    animation: none !important;
+    transition: none !important;
   }
 }
