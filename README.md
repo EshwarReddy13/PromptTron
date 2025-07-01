@@ -1,93 +1,69 @@
-# 🛠️ Prompttron: AI Prompt Engineering Studio
+# React + TypeScript + Vite
 
-![Prompttron Banner](https://i.postimg.cc/N0Y8ryNH/Chat-GPT-Image-Jul-1-2025-12-10-03-PM.png) <!-- Replace with actual banner image -->
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-**Prompttron** is a powerful cross-platform (web + desktop) application for crafting, optimizing, and deploying AI prompts with open-source models and customizable agents.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## ✨ Features
+## Expanding the ESLint configuration
 
-- ⚡ **Web & Desktop App** — Accessible via browser or as a native install  
-- 🤖 **Smart Prompt Agents** — Pre-configured for coding, writing, and research  
-- 🔧 **Prompt Optimization** — AI-powered suggestions to refine prompts  
-- 🛠️ **Custom Agent Creation** — Build and share your own prompt workflows  
-- 🔓 **Open-Source LLMs** — Integrates with LLaMA, Mistral, and other models  
-- 🌐 **Community Sharing** — Collaborate and remix prompts with others  
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
----
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## 🚀 Installation
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-### 🌐 Web Version
-Access instantly at: **In Progress**
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-### 💻 Desktop App
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-#### Windows
-1. Download `Prompttron-Setup.exe` from [Releases](https://github.com/prompttron/prompttron/releases)  
-2. Run the installer and follow the prompts  
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## 📝 Usage
-
-### Basic Prompt Editing
-
-- Enter your prompt in the editor  
-- Click **Optimize** for AI-powered improvements  
-- Adjust parameters like creativity, length, and format  
-
----
-
-### Using Pre-Built Agents
-
-Quickly deploy prompts with pre-configured agents such as:
-
-- **Code Explainer**  
-- **Blog Post Generator**  
-- **Academic Paper Summarizer**  
-
----
-
-### Creating Custom Agents
-
-1. Navigate to **Agents → New**  
-2. Define the following:
-   - Agent **name** and **purpose**  
-   - Example **inputs** and **outputs**  
-   - Preferred **LLM backend**  
-3. Save and deploy your custom agent  
-
----
-
-## ⚙️ Tech Stack
-
-| Component           | Technology              |
-|---------------------|------------------------|
-| **Frontend**        | React + TypeScript     |
-| **Desktop Core**    | Tauri (Rust)           |
-| **State Management**| Zustand                |
-| **UI Components**   | Radix UI + Tailwind CSS|
-| **LLM Integration** | Ollama, Together AI    |
-
-### Supported Models
-
-- LLaMA 3  
-- Mistral 7B  
-- DeepSeek Coder  
-- Custom model support via Ollama  
-
----
-
-## 📄 License
-
-This project is open-source. See [LICENSE](LICENSE) for full details.
-
----
-
-## 🌟 Contributing
-
-Contributions, issues, and feature requests are welcome!  
-Feel free to open an [issue](https://github.com/prompttron/prompttron/issues) or submit a pull request.
-
----
-
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
