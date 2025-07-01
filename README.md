@@ -1,6 +1,6 @@
 # 🛠️ Prompttron: AI Prompt Engineering Studio
 
-![Prompttron Banner](https://ibb.co/9myk7Ssx)) <!-- Replace with actual banner image -->
+![Prompttron Banner](https://i.postimg.cc/bvHDX39G/Chat-GPT-Image-Jul-1-2025-12-10-03-PM.png) <!-- Replace with actual banner image -->
 
 **Prompttron** is a powerful cross-platform (web + desktop) application for crafting, optimizing, and deploying AI prompts with open-source models and customizable agents.
 
