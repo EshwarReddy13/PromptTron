@@ -20,17 +20,13 @@
 ## 🚀 Installation
 
 ### 🌐 Web Version
-Access instantly at: [https://prompttron.app](https://prompttron.app)
+Access instantly at: **In Progress**
 
 ### 💻 Desktop App
 
 #### Windows
 1. Download `Prompttron-Setup.exe` from [Releases](https://github.com/prompttron/prompttron/releases)  
 2. Run the installer and follow the prompts  
-
-#### macOS
-1. Download `Prompttron.dmg`  
-2. Drag the app to the **Applications** folder  
 
 ## 📝 Usage
 
