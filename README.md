@@ -1,7 +1,8 @@
 # 🚀 PromptTron
 
 **Transform ordinary prompts into powerful AI commands that deliver exceptional results**
-**Made this app because I was jobless and bored**
+<br></br>
+*Made this app because I was jobless and bored to hell*
 
 PromptTron is a sophisticated cross-platform AI prompt enhancement tool that takes your basic prompts and transforms them into detailed, actionable AI commands using specialized prompt agents. Choose from predefined agents like Software Developer, Manager, or Designer, or create your own custom agents. Available on web and desktop, built with React, TypeScript, and TailwindCSS, it features a beautiful dark theme with smooth animations and a professional chat interface.
 
