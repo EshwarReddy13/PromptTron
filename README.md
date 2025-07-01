@@ -32,25 +32,66 @@ Access instantly at: [https://prompttron.app](https://prompttron.app)
 1. Download `Prompttron.dmg`  
 2. Drag the app to the **Applications** folder  
 
-#### Linux
+## 📝 Usage
 
-**AppImage:**
-```bash
-chmod +x Prompttron-*.AppImage
-./Prompttron-*.AppImage
-Snap:
+### Basic Prompt Editing
 
-bash
-Copy
-Edit
-sudo snap install prompttron
-From Source:
+- Enter your prompt in the editor  
+- Click **Optimize** for AI-powered improvements  
+- Adjust parameters like creativity, length, and format  
 
-bash
-Copy
-Edit
-git clone https://github.com/prompttron/prompttron.git
-cd prompttron
-npm install
-npm run build
-npm run tauri build
+---
+
+### Using Pre-Built Agents
+
+Quickly deploy prompts with pre-configured agents such as:
+
+- **Code Explainer**  
+- **Blog Post Generator**  
+- **Academic Paper Summarizer**  
+
+---
+
+### Creating Custom Agents
+
+1. Navigate to **Agents → New**  
+2. Define the following:
+   - Agent **name** and **purpose**  
+   - Example **inputs** and **outputs**  
+   - Preferred **LLM backend**  
+3. Save and deploy your custom agent  
+
+---
+
+## ⚙️ Tech Stack
+
+| Component           | Technology              |
+|---------------------|------------------------|
+| **Frontend**        | React + TypeScript     |
+| **Desktop Core**    | Tauri (Rust)           |
+| **State Management**| Zustand                |
+| **UI Components**   | Radix UI + Tailwind CSS|
+| **LLM Integration** | Ollama, Together AI    |
+
+### Supported Models
+
+- LLaMA 3  
+- Mistral 7B  
+- DeepSeek Coder  
+- Custom model support via Ollama  
+
+---
+
+## 📄 License
+
+This project is open-source. See [LICENSE](LICENSE) for full details.
+
+---
+
+## 🌟 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to open an [issue](https://github.com/prompttron/prompttron/issues) or submit a pull request.
+
+---
+
